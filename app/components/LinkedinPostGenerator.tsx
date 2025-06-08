@@ -1,16 +1,16 @@
 import { ChangeEvent, useState } from 'react';
 import { useChat } from 'ai/react';
-import Tweet from './Tweet';
-import styles from './tweetgenerator.module.css';
+import LinkedinPost from './LinkedinPost';
+import styles from './linkedingenerator.module.css';
 
-const TweetGenerator = () => {
-  const [tweetText, setTweetText] = useState('');
+const LinkedinPostGenerator = () => {
+  const [postText, setPostText] = useState('');
   const [tone, setTone] = useState('funny');
   const [imageUrl, setImageUrl] = useState("");
   const [generateImage, setGenerateImage] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [generatedTweet, setGeneratedTweet] = useState('');
+  const [generatedPost, setGeneratedPost] = useState('');
   const [disableSubmitButton, setDisableSubmitButton] = useState(true);
 
   const { handleInputChange, handleSubmit } = useChat({
@@ -18,13 +18,13 @@ const TweetGenerator = () => {
     onFinish: (message) => {
       setError('');
 
-      let generatedTweetContent = message.content;
-      // Remove hashtags from the generated tweet
-      generatedTweetContent = generatedTweetContent?.replace(/#[\w]+/g, '');
-      setGeneratedTweet(generatedTweetContent);
+      let generatedPostContent = message.content;
+      // Remove hashtags from the generated linkedin post
+      generatedPostContent = generatedPostContent?.replace(/#[\w]+/g, '');
+      setGeneratedPost(generatedPostContent);
       
-      if (generateImage && generatedTweetContent) {
-        getImageData(generatedTweetContent).then();
+      if (generateImage && generatedPostContent) {
+        getImageData(generatedPostContent).then();
       } else {
         setLoading(false);
       }
@@ -66,7 +66,7 @@ const TweetGenerator = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h1>Generate your next Tweet using AI</h1>
+        <h1>Generate your next LinkedIn post using AI</h1>
       </div>
       <form className={styles.form} onSubmit={onSubmit}>
         <label htmlFor="bioInput" className={styles.label}>1. Write the topic you want to tweet about.</label>
@@ -75,9 +75,9 @@ const TweetGenerator = () => {
           className={styles.textarea}
           rows={4}
           placeholder="An announcement for our new product: Leetcode Torture"
-          value={tweetText}
+          value={postText}
           onChange={(e) => {
-            setTweetText(e.target.value)
+            setPostText(e.target.value)
             handleInputChange({
               ...e,
               target: {
@@ -101,7 +101,7 @@ const TweetGenerator = () => {
               ...event,
               target: {
                 ...event.target,
-                value: `Generate a ${e.target.value} post about ${tweetText}.`
+                value: `Generate a ${e.target.value} post about ${postText}.`
               }
             });
             setDisableSubmitButton(false);
@@ -122,18 +122,18 @@ const TweetGenerator = () => {
             onChange={(e) => setGenerateImage(e.target.checked)}
             disabled={loading}
           />
-          <label htmlFor="imageOption" className={styles.checkboxLabel}>Generate an image with the tweet</label>
+          <label htmlFor="imageOption" className={styles.checkboxLabel}>Generate an image with the post</label>
         </div>
 
         <button className={styles.button} type="submit" disabled={disableSubmitButton}>
-          Generate your tweet →
+          Generate your Linkedin post →
         </button>
       </form>
       {loading && <p>Loading...</p>}
       {error && <p className={styles.error}>{error}</p>}
-      {generatedTweet && <Tweet tweet={generatedTweet} imageSrc={imageUrl} />}
+      {generatedPost && <LinkedinPost post={generatedPost} imageSrc={imageUrl} />}
     </div>
   );
 }
 
-export default TweetGenerator;
+export default LinkedinPostGenerator;

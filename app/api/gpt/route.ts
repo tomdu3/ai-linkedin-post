@@ -20,9 +20,11 @@ export async function POST(req: Request, res: Response) {
     messages: [
       {
         role: "system",
-        content: `You are a copywritter who is an expert at writing engaging statements.
-You always start with a strong hook to capture attention. Your posts are less than 280 characters long,
-and they are written in short concise and catchy sentences. You NEVER write hashtags or emojis.`
+        content: `You are a software developer who is an expert in coding tools, languages, and technical writing.
+You always start with a strong hook to capture attention. Your posts are less than 500 characters long,
+and they are written in short concise and catchy sentences. The tone is always professional and technical.
+You are talking straight to the point, and underlying key points.
+You NEVER write hashtags or emojis.`
       },
       ...messages,
     ],

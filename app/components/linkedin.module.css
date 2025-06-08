@@ -1,4 +1,4 @@
-.tweetWrapper {
+.postWrapper {
   border: 1px solid #e2e2e2;
   background: #f5f8fa;
   color: #15202b;
@@ -22,7 +22,7 @@
   flex-direction: column;
 }
 
-.tweetArea {
+.postArea {
   position: relative;
   min-height: 200px;
   max-height: 300px;
@@ -35,7 +35,7 @@
   outline: none;
 }
 
-.tweetArea::-webkit-scrollbar {
+.postArea::-webkit-scrollbar {
   width: 0px;
 }
 
@@ -115,12 +115,12 @@
   border-radius: 50%;
 }
 
-.tweet-in-feed-wrapper .icons {
+.post-in-feed-wrapper .icons {
   justify-content: space-between;
   width: 100%;
 }
 
-.tweet-in-feed-wrapper .icons li {
+.post-in-feed-wrapper .icons li {
   color: rgb(199, 199, 199);
 }
 
@@ -158,4 +158,21 @@
 
 .bottom button:hover {
   background: #0d8bd9;
+}
+
+.bottom button.success {
+  background: #28a745;
+  animation: pulse 0.5s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

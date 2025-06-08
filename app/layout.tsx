@@ -6,8 +6,8 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
 export const metadata: Metadata = {
-  title: 'Codebender Tweet Generator',
-  description: 'A Tweet Generator that uses AI to generate tweets based on a topic and style.'
+  title: 'TomDcoding Linkedin Post Generator',
+  description: 'A linkedin post generator that uses AI to generate posts based on a topic and style.'
 }
 
 export default function RootLayout({

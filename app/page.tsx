@@ -1,13 +1,13 @@
 'use client';
 
 import Image from 'next/image';
-import TweetGenerator from './components/TweetGenerator';
+import LinkedinPostGenerator from './components/LinkedinPostGenerator';
 
 export default function Home() {
   return (
     <main className="App">
       <div className='container'>
-        <TweetGenerator />
+        <LinkedinPostGenerator />
       </div>
     </main>
   )
