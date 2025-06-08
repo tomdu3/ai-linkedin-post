@@ -16,11 +16,19 @@ export async function POST(req: Request, res: Response) {
     });
   }
 
-  // Extract the `prompt` from the body of the request
-  const body = await req.text();
-  const { prompt } = JSON.parse(body);
-  
   try {
+    // Extract the `prompt` from the body of the request
+    const { prompt } = await req.json();
+    
+    if (!prompt || typeof prompt !== 'string' || prompt.trim().length === 0) {
+      return new Response('Prompt must be a non-empty string', {
+        status: 400,
+      });
+    }
+    
+    console.log('Dall-E prompt:', prompt);
+    
+
     // Ask Dall-E to generate an image based on the prompt
     const response = await openai.images.generate({
       model: "dall-e-3",
@@ -32,7 +40,11 @@ export async function POST(req: Request, res: Response) {
     console.log('imageUrl:', imageUrl);
     return NextResponse.json({ imageUrl });
   } catch (error: any) {
-    console.error(error);
+    console.error('OpenAI API error:', error);
+    if (error.response) {
+      const errorBody = await error.response.json().catch(() => null);
+      console.error('OpenAI API error response body:', errorBody);
+    }
     return new Response(error?.message || error?.toString(), {
       status: 500,
     })
