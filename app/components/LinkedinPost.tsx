@@ -27,10 +27,6 @@ const LinkedinPost: React.FC<Props> = ({ post, imageSrc }) => {
       <div className={styles.inputBox}>
         <textarea className={styles.postArea} value={post} readOnly />
         {imageSrc && <Image src={imageSrc} alt={post} width={475} height={475} className={styles.image} />}
-        <div className={styles.privacy}>
-          <FontAwesomeIcon icon={faGlobeAsia} />
-          <span>Everyone can reply</span>
-        </div>
       </div>
       <div className={styles.bottom}>
         <div className={styles.content}>

@@ -69,7 +69,7 @@ const LinkedinPostGenerator = () => {
         <h1>Generate your next LinkedIn post using AI</h1>
       </div>
       <form className={styles.form} onSubmit={onSubmit}>
-        <label htmlFor="bioInput" className={styles.label}>1. Write the topic you want to tweet about.</label>
+        <label htmlFor="bioInput" className={styles.label}>1. Write the topic you want to post on LinkedIn about.</label>
         <textarea
           id="bioInput"
           className={styles.textarea}
@@ -125,8 +125,12 @@ const LinkedinPostGenerator = () => {
           <label htmlFor="imageOption" className={styles.checkboxLabel}>Generate an image with the post</label>
         </div>
 
-        <button className={styles.button} type="submit" disabled={disableSubmitButton}>
-          Generate your Linkedin post →
+        <button 
+          className={`${styles.button} ${loading ? styles.loading : ''}`} 
+          type="submit" 
+          disabled={disableSubmitButton || loading}
+        >
+          {loading ? 'Generating' : 'Generate your LinkedIn post →'}
         </button>
       </form>
       {loading && <p>Loading...</p>}

@@ -1,10 +1,10 @@
-# Codebender Tweet Generator
+# LinkedIn Post Generator
 
-This app generates engaging tweets for your brand.
+This app generates engaging LinkedIn posts for your brand.
 
 This project is built using Nextjs. It utilizes the OpenAI GPT for chat completion, and Dall-E for image generation.
 
-<img src="tweet-generator-demo.gif" alt="app demo" width=600>
+<img src="linkedin-generator-demo.gif" alt="app demo" width=600>
 
 ## Getting Started
 
@@ -24,7 +24,7 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/components/TweetGenerator.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `app/components/LinkedinPostGenerator.tsx`. The page auto-updates as you edit the file.
 
 ## Deploy on Vercel
 
