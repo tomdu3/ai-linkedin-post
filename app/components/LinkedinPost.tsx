@@ -40,7 +40,6 @@ const LinkedinPost: React.FC<Props> = ({ post, imageSrc }) => {
           )}
         </div>
         <div className={styles.content}>
-          <span className={styles.counter}>100</span>
           <button 
             className={`${styles.postButton} ${copyingText ? styles.success : ''}`}
             onClick={() => handleCopy(post, setCopyingText)}
