@@ -131,7 +131,6 @@ const LinkedinPostGenerator = () => {
           {loading ? 'Generating' : 'Generate your LinkedIn post →'}
         </button>
       </form>
-      {loading && <p>Loading...</p>}
       {error && <p className={styles.error}>{error}</p>}
       {generatedPost && <LinkedinPost post={generatedPost} imageSrc={imageUrl} />}
     </div>

@@ -24,20 +24,9 @@ const LinkedinPost: React.FC<Props> = ({ post, imageSrc }) => {
   };
   return (
     <div className={styles.postWrapper}>
-      <div className={styles.inputBox}>
-        <textarea className={styles.postArea} value={post} readOnly />
-        {imageSrc && <Image src={imageSrc} alt={post} width={475} height={475} className={styles.image} />}
-      </div>
-      <div className={styles.bottom}>
-        <div className={styles.content}>
-          {imageSrc && (
-            <button 
-              className={`${styles.postButton} ${copyingImage ? styles.success : ''}`}
-              onClick={() => handleCopy(imageSrc, setCopyingImage)}
-            >
-              {copyingImage ? 'Copied!' : 'Image to clipboard'}
-            </button>
-          )}
+      <div className={styles.contentContainer}>
+        <div className={styles.postArea}>
+          <textarea value={post} readOnly />
         </div>
         <div className={styles.content}>
           <button 
@@ -48,6 +37,21 @@ const LinkedinPost: React.FC<Props> = ({ post, imageSrc }) => {
           </button>
         </div>
       </div>
+      {imageSrc && (
+        <div className={styles.imageContainer}>
+          <div className={styles.imageWrapper}>
+            <img src={imageSrc} alt="Generated post visual" />
+          </div>
+          <div className={styles.imageButton}>
+            <button 
+              className={`${styles.postButton} ${copyingImage ? styles.success : ''}`}
+              onClick={() => handleCopy(imageSrc, setCopyingImage)}
+            >
+              {copyingImage ? 'Copied!' : 'Image to clipboard'}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
