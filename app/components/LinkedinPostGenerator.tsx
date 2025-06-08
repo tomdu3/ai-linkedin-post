@@ -19,8 +19,6 @@ const LinkedinPostGenerator = () => {
       setError('');
 
       let generatedPostContent = message.content;
-      // Remove hashtags from the generated linkedin post
-      generatedPostContent = generatedPostContent?.replace(/#[\w]+/g, '');
       setGeneratedPost(generatedPostContent);
       
       if (generateImage && generatedPostContent) {

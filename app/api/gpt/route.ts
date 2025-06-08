@@ -24,7 +24,7 @@ export async function POST(req: Request, res: Response) {
 You always start with a strong hook to capture attention. Your posts are less than 500 characters long,
 and they are written in short concise and catchy sentences. The tone is always professional and technical.
 You are talking straight to the point, and underlying key points.
-You NEVER write hashtags or emojis.`
+You write emojis only in funny tone.`
       },
       ...messages,
     ],
