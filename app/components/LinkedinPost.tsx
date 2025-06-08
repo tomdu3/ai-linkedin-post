@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileImage, faMapMarkerAlt, faGrin, faUser, faGlobeAsia } from "@fortawesome/free-solid-svg-icons";
 import Image from 'next/image';
 import styles from './linkedin.module.css';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 type Props = {
   post: string;
@@ -12,6 +12,7 @@ type Props = {
 const LinkedinPost: React.FC<Props> = ({ post, imageSrc }) => {
   const [copyingImage, setCopyingImage] = useState(false);
   const [copyingText, setCopyingText] = useState(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const handleCopy = async (text: string, setCopying: (value: boolean) => void) => {
     try {
@@ -22,11 +23,18 @@ const LinkedinPost: React.FC<Props> = ({ post, imageSrc }) => {
       console.error('Failed to copy:', err);
     }
   };
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
+    }
+  }, [post]);
   return (
     <div className={styles.postWrapper}>
       <div className={styles.contentContainer}>
         <div className={styles.postArea}>
-          <textarea value={post} readOnly />
+          <textarea ref={textareaRef} value={post} readOnly />
         </div>
         <div className={styles.content}>
           <button 
