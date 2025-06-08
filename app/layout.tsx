@@ -7,7 +7,9 @@ config.autoAddCss = false;
 
 export const metadata: Metadata = {
   title: 'TomDcoding Linkedin Post Generator',
-  description: 'A linkedin post generator that uses AI to generate posts based on a topic and style.'
+  description: 'A linkedin post generator that uses AI to generate posts based on a topic and style.',
+  keywords: 'AI, Linkedin, Post Generator, TomDcoding',
+  authors: [{ name: 'Tomislav Dukez', url: 'https://tomdu3.co.uk' }],   
 }
 
 export default function RootLayout({
