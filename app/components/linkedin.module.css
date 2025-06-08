@@ -14,8 +14,11 @@
 
 @media (max-width: 768px) {
   .postWrapper {
-    margin: 1rem auto;
+    margin: 0;
     padding: 1rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
 }
 

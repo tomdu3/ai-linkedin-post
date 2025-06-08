@@ -57,6 +57,21 @@ body {
 }
 
 @media (max-width: 768px) {
+  .App {
+    padding: 0;
+  }
+
+  .container {
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 425px) {
   .container {
     margin: 10px auto;
     padding: 1rem;
