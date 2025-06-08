@@ -72,7 +72,7 @@ const LinkedinPostGenerator = () => {
           id="bioInput"
           className={styles.textarea}
           rows={4}
-          placeholder="An announcement for our new product: Leetcode Torture"
+          placeholder="Top 5 reasons to learn Python"
           value={postText}
           onChange={(e) => {
             setPostText(e.target.value)
